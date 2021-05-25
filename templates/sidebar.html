@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+<!-- start -->
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-2 nav flex-column bg-dark p-3" style="height: 100vh">
+      <h3 class="mb-3 text-white">CIT CHENNAI</h3>
+      <a class="nav-link" aria-current="page" href="#"
+        ><i class="bi bi-graph-up"></i>&nbsp; Dashboard</a
+      >
+      <a class="nav-link text-white" href="#"
+        ><i class="bi bi-currency-dollar"></i> &nbsp; Bidding</a
+      >
+      <a class="nav-link text-white" href="#"
+        ><i class="bi bi-person"></i>&nbsp; Profile</a
+      >
+      <a class="nav-link text-white" href="#"
+        ><i class="bi bi-power"></i>&nbsp; Logout</a
+      >
+    </nav>
+    <div class="col-10">
+      {% block dashboardcontent %} {% endblock dashboardcontent %}
+    </div>
+  </div>
+</div>
+
+<!-- ending block -->
+{% endblock content%}

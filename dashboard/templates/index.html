@@ -1,0 +1,123 @@
+{% extends "sidebar.html" %}
+
+<!-- content starts -->
+{% block dashboardcontent %}
+<div class="container mt-2">
+    <h2>DashBoard</h1>
+
+    <div class="row row-cols-2 row-cols-md-4 g-4 mt-2">
+        <div class="col">
+            <div class="card shadow border-0 text-center" style="width: 100%;">
+                <div class="card-body">
+                    <h6 class="card-title">Card title</h6>
+                    <h2>64+</h2>
+                    <p class="card-text text-muted">MW</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card shadow border-0 text-center" style="width: 100%">
+                <div class="card-body">
+                    <h6 class="card-title">Card title</h6>
+                    <h2>64+</h2>
+                    <p class="card-text text-muted">MW</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card shadow border-0 text-center" style="width: 100%">
+                <div class="card-body">
+                    <h6 class="card-title">Card title</h6>
+                    <h2>64+</h2>
+                    <p class="card-text text-muted">MW</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card shadow border-0 text-center" style="width: 100%">
+                <div class="card-body">
+                    <h6 class="card-title">Card title</h6>
+                    <h2>64+</h2>
+                    <p class="card-text text-muted">MW</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row w-100 mt-5">
+        <div class="col-7">
+            <h3>
+                Statistics
+            </h3>
+            <canvas id="myChart" width="400" height="230"></canvas>
+        </div>
+        <div class="col-5">
+            <h3>
+                Recent Activities
+            </h3>
+            <div class="row row-cols-1 g-4 mt-2" style="max-height: 300px;overflow-y: auto;">
+                <div class="col">
+                    <div class="card bg-dark shadow border-0" style="width: 100%;">
+                        <div class="card-body">
+                            <h6 class="card-subtitle text-white">Report Downloaded</h6>
+                            <p class="card-text text-muted">today</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-dark shadow border-0" style="width: 100%;">
+                        <div class="card-body">
+                            <h6 class="card-subtitle text-white">Report Deleted</h6>
+                            <p class="card-text text-muted">yesterday</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-dark shadow border-0" style="width: 100%;">
+                        <div class="card-body">
+                            <h6 class="card-subtitle text-white">Username Changed</h6>
+                            <p class="card-text text-muted">2 days ago</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-dark shadow border-0" style="width: 100%;">
+                        <div class="card-body">
+                            <h6 class="card-subtitle text-white">Password Changed</h6>
+                            <p class="card-text text-muted">1 month ago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script >
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+
+            labels: ["Jan", "Feb", "March", "April", "May", "June", "July"],
+            datasets: [
+                {
+                label: "My First Dataset",
+                data: [65, 59, 80, 81, 56, 55, 40],
+                fill: true,
+                borderColor: "#1356b7",
+                backgroundColor: "#1356b771",
+                tension: 0.1,
+                },
+            ],
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+<!-- end -->
+{% endblock dashboardcontent %}
