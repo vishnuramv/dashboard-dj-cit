@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+<!-- start -->
+{% block content %}
+<div class="container-fluid " style="height: 100vh;
+    max-height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: whitesmoke;">
+    <div class="card p-3 border-0 shadow" style="width: 22rem;">
+        <div class="p-4">
+            <img src="https://raw.githubusercontent.com/ipenywis/react-login-register/e00bd4637183df94e54c8a19a80b5262834da8f7/src/login.svg" class="card-img-top" alt="Login">
+        </div>
+        {% block authcontent %} {% endblock authcontent %}
+    </div>
+</div>
+
+<!-- ending block -->
+{% endblock content%}

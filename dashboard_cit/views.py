@@ -2,5 +2,6 @@ from django.http.response import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
-def DashboardView(request):
-    return render(request, "dashboard/index.html")
+def SignupView(request):
+    print("hello")
+    return render(request, "signup.html")
