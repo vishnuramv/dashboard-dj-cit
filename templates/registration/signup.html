@@ -4,6 +4,13 @@
 {% block authcontent %}
 <div class="card-body">
   <h3 class="mb-3 card-title text-center">Create An Account</h3>
+
+  {% if error %}
+  <div class="alert alert-warning p-1 px-3" role="alert">
+    <i class="bi bi-exclamation-triangle-fill"></i>&nbsp; {{ error }}
+  </div>
+  {% endif %}
+
   <form method="post" action="{% url 'signup' %}">
     {% csrf_token %}
     <div class="input-group mb-3">
