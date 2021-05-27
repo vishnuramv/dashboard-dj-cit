@@ -2,7 +2,7 @@
 {% block authcontent %}
     <div class="card-body">
         <h3 class="mb-3 card-title text-center">Create An Account</h3>
-        <!-- <form method="post">
+        <form method="post" action="{% url 'signup' %}">
             {% csrf_token %}
             <div class="input-group mb-3">
               <span class="input-group-text" ><i class="bi bi-person-fill"></i></span>
@@ -22,6 +22,6 @@
                 <p>Existing user?&nbsp;
                     <a href="/auth/login" class="card-link">Log In</a>
                 </p>
-        </form> -->
+        </form>
     </div>
 {% endblock authcontent %}

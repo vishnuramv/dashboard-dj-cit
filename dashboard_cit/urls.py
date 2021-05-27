@@ -22,8 +22,8 @@ from dashboard_cit.views import SignupView
 urlpatterns = [
     path("admin/", admin.site.urls), 
     path("", include("dashboard.urls")),
-    path("signup/", SignupView),
     path('accounts/', include('django.contrib.auth.urls')),
+    path("signup/", SignupView, name="signup"),
     # path("auth/", include("authentication.urls")),
 ]
 
