@@ -106,10 +106,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'vishnueverwin@gmail.com'
-EMAIL_HOST_PASSWORD = 'vishnu#ezhil'
+EMAIL_HOST_USER = '<email>'
+EMAIL_HOST_PASSWORD = '<password>'
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'vishnueverwin@gmail.com'
+DEFAULT_FROM_EMAIL = 'vishnu.v1902@gmail.com'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -124,8 +124,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+# Auth Routes
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = "/accounts/login"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
