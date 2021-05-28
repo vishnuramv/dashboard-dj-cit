@@ -1,0 +1,42 @@
+{% extends "sidebar.html" %}
+
+<!-- content starts -->
+{% block dashboardcontent %}
+
+<div class="container mt-2">
+  <h2>Bidding</h2>
+
+  <div style="width: 75%">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Slot</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Time block</th>
+          <th>But Qty</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in dummy_arr %}
+        <tr>
+          <td>CS</td>
+          <td>11:00</td>
+          <td>12:00</td>
+          <td>T01</td>
+          <td>2</td>
+          <td>100</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-primary" style="margin-right: 10px">Save</button>
+      <button class="btn btn-secondary">Create as Template</button>
+    </div>
+  </div>
+</div>
+
+{% endblock dashboardcontent %}

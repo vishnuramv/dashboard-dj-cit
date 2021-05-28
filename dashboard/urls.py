@@ -1,4 +1,7 @@
 from django.urls import path
-from dashboard.views import DashboardView
+from dashboard.views import BiddingView, DashboardView
 
-urlpatterns = [path("", DashboardView)]
+urlpatterns = [
+    path("", DashboardView, name="dashboard"),
+    path("bidding/", BiddingView, name="bidding"),
+]
