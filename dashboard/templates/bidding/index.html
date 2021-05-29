@@ -6,37 +6,136 @@
 <div class="container mt-2">
   <h2>Bidding</h2>
 
-  <div style="width: 75%">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Slot</th>
-          <th>From</th>
-          <th>To</th>
-          <th>Time block</th>
-          <th>But Qty</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for i in dummy_arr %}
-        <tr>
-          <td>CS</td>
-          <td>11:00</td>
-          <td>12:00</td>
-          <td>T01</td>
-          <td>2</td>
-          <td>100</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+  {% if message %}
+  <div
+    class="alert alert-success p-1 px-3"
+    role="alert"
+    style="max-width: 300px"
+  >
+    <i class="bi bi-check2-circle"></i>&nbsp; {{message}}
+  </div>
+  {% endif %}
+
+  <form style="width: 75%" method="POST" action="{% url 'bidding' %}">
+    {% csrf_token %}
+    <div style="height: 75vh; overflow-y: auto">
+      <table class="table table-striped position-relative">
+        <thead class="position-sticky top-0 bg-white">
+          <tr>
+            <th>Slot</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Time block</th>
+            <th>Buy Qty (MW)</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in dummy_arr %}
+          <tr>
+            <td>
+              <input
+                type="text"
+                name="slot_{{i}}"
+                class="form-control"
+                style="max-width: 90px"
+              />
+            </td>
+            <td>
+              <input
+                type="time"
+                name="from_{{i}}"
+                class="form-control"
+                style="max-width: 120px"
+              />
+            </td>
+            <td>
+              <input
+                type="time"
+                name="to_{{i}}"
+                class="form-control"
+                style="max-width: 120px"
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                name="block_{{i}}"
+                class="form-control"
+                style="max-width: 90px"
+              />
+            </td>
+            <td>
+              <input
+                data-value="quantity"
+                type="number"
+                name="quantity_{{i}}"
+                class="form-control"
+                style="max-width: 70px"
+              />
+            </td>
+            <td>
+              <input
+                data-value="price"
+                type="number"
+                name="price_{{i}}"
+                class="form-control"
+                style="max-width: 70px"
+              />
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
 
     <div class="d-flex justify-content-end">
-      <button class="btn btn-primary" style="margin-right: 10px">Save</button>
+      <p class="pr-3 fw-bold">Total :</p>
+      <p class="px-5 fw-bold" id="totalQty"></p>
+      <p class="px-5 fw-bold" id="totalPrice"></p>
+    </div>
+
+    <div class="d-flex justify-content-end">
+      <button type="submit" class="btn btn-primary" style="margin-right: 10px">
+        Save
+      </button>
       <button class="btn btn-secondary">Create as Template</button>
     </div>
-  </div>
+  </form>
 </div>
+
+<script>
+  const quantities = document.querySelectorAll("[data-value='quantity']");
+  const prices = document.querySelectorAll("[data-value='price']");
+  const totalQty = document.getElementById("totalQty");
+  const totalPrice = document.getElementById("totalPrice");
+
+  quantities.forEach((quantity) => {
+    quantity.addEventListener("change", calcTotalQty);
+  });
+
+  prices.forEach((price) => {
+    price.addEventListener("change", calcTotalPrice);
+  });
+
+  function calcTotalQty() {
+    let total = 0;
+    quantities.forEach((quantity) => {
+      if (quantity.value) total += parseInt(quantity.value);
+    });
+    totalQty.innerText = `${total} MW`;
+  }
+
+  function calcTotalPrice() {
+    let total = 0;
+    prices.forEach((price) => {
+      if (price.value) total += parseInt(price.value);
+    });
+    totalPrice.innerText = `Rs.${total}`;
+  }
+
+  calcTotalPrice();
+  calcTotalQty();
+</script>
 
 {% endblock dashboardcontent %}

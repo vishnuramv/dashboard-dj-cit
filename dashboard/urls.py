@@ -3,5 +3,5 @@ from dashboard.views import BiddingView, DashboardView
 
 urlpatterns = [
     path("", DashboardView, name="dashboard"),
-    path("bidding/", BiddingView, name="bidding"),
+    path("bidding/", BiddingView.as_view(), name="bidding"),
 ]
